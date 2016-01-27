@@ -1,0 +1,23 @@
+Step 1: Input text from command line.
+Step 2: Create an array from the split input data
+
+Step 3: Create a function. Use a for loop that calls on API to check for matches between elements in 
+        in the array from Step 2 to items ('track') from API json results. Use request method to do this (nicer than urllib2 
+        and more standard than spotipy).
+
+NAIVE SOLUTION:
+a. Taking input list of words (S), see if a song exists with name S[X:N] where N=length(S) to 1 and x=0 initially.
+If it does exist, X=N and append to list L. Start loop again. If X=length(S) return L, if N=X remove the last item in list L. If L is empty a solution does not exist. 
+(Major problem: Very naive solution. Not polynomial time due to all the backtracking)
+
+OTHER SOLUTIONS (Dynamic Programming):
+a. Take  a newly created array and search for matching title***. If no match is found then remove one element (word) from the list and search again, repeating this step until a matching title is found. When found append to a new list (playlist). Then search again with the remaining list of words. (Expensive on data and time, but caching previous searches could help.). 
+
+***If length of list excedes, let's say 7 elements because a song title would be no more than 5 words typically, then list will be split before starting algorthim. 
+
+
+b. Search by Hashing?
+
+
+Step 4: Store the matched search results into a results array.
+Step 5: Print array.
